@@ -235,7 +235,7 @@ html, body {
     top: 120%;
     left: 50%;
     transform: translateX(-50%);
-    font-family: "Rubik Glitch Pop", system-ui;
+    font-family: "Dancing Script", system-ui;
     font-weight: 400;
     font-style: normal;
     font-size: 120px;
@@ -311,7 +311,7 @@ html, body {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    font-family: "Rubik Glitch Pop", system-ui;
+    font-family: "Dancing Script", system-ui;
     font-weight: 400;
     font-style: normal;
     font-size: 40px;
@@ -471,9 +471,37 @@ html, body {
 
 .artHeart {
     width: 90%;
-    height: auto;
+    height: 580px;  /* Cố định chiều cao */
+    object-fit: cover; /* Cắt ảnh đều từ trung tâm */
     filter: drop-shadow(0 0 5px white);
+    position: absolute;
+    opacity: 0;
 }
+
+/* Hiệu ứng fade-in từng ảnh */
+.fade-in {
+    animation: fadeInOut 49s infinite;
+}
+
+/* Thiết lập thứ tự xuất hiện cho từng ảnh */
+.artHeart:nth-child(1) { animation-delay: 0s; }
+.artHeart:nth-child(2) { animation-delay: 7s; }
+.artHeart:nth-child(3) { animation-delay: 14s; }
+.artHeart:nth-child(4) { animation-delay: 21s; }
+.artHeart:nth-child(5) { animation-delay: 28s; }
+.artHeart:nth-child(6) { animation-delay: 35s; }
+.artHeart:nth-child(7) { animation-delay: 42s; }
+
+/* Keyframes giúp ảnh hiện lên dần và thay thế nhau */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }  /* Hiển thị ảnh */
+    45% { opacity: 1; }  /* Giữ lâu hơn */
+    55% { opacity: 0; }  /* Mờ dần trước khi đổi ảnh */
+    100% { opacity: 0; }
+}
+
+
 
 .des {
     position: absolute;
